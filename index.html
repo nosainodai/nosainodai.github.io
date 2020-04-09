@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
 
   </li>
   </ul>
@@ -161,6 +161,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/01.jpg">
+      <meta itemprop="name" content="Sai Chou">
+      <meta itemprop="description" content="知足且上进，温柔而坚定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="第三方の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">java多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-09 12:25:18 / 修改时间：12:27:42" itemprop="dateCreated datePublished" datetime="2020-04-09T12:25:18+08:00">2020-04-09</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>##</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/java%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -184,10 +250,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-08 20:53:21 / 修改时间：22:58:17" itemprop="dateCreated datePublished" datetime="2020-04-08T20:53:21+08:00">2020-04-08</time>
+              <time title="创建时间：2020-04-08 20:53:21" itemprop="dateCreated datePublished" datetime="2020-04-08T20:53:21+08:00">2020-04-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-09 12:28:29" itemprop="dateModified" datetime="2020-04-09T12:28:29+08:00">2020-04-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -204,7 +276,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>927</span>
             </span>
 
         </div>
@@ -216,23 +288,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;创建两个 ArrayList对象</span><br><span class="line">ArrayList a1&#x3D;new ArrayList();</span><br><span class="line">ArrayList a2&#x3D;new ArrayList();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;添加数据</span><br><span class="line">a1.add(&quot;小明&quot;);</span><br><span class="line">a1.add(&quot;小新&quot;);</span><br><span class="line">a1.add(&quot;小月&quot;);</span><br><span class="line">a2.add(&quot;小红&quot;);</span><br><span class="line">a2.add(&quot;小蓝&quot;);</span><br><span class="line"></span><br><span class="line">a1.addAll(a2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;在指定索引位置插入一个数据</span><br><span class="line"></span><br><span class="line">a1.add(0,&quot;小军&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除数据</span><br><span class="line">a1.remove(0);</span><br></pre></td></tr></table></figure>
+          <h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建两个 ArrayList对象</span></span><br><span class="line">ArrayList a1=<span class="keyword">new</span> ArrayList();</span><br><span class="line">ArrayList a2=<span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加数据</span></span><br><span class="line">a1.add(<span class="string">"小明"</span>);</span><br><span class="line">a1.add(<span class="string">"小新"</span>);</span><br><span class="line">a1.add(<span class="string">"小月"</span>);</span><br><span class="line">a2.add(<span class="string">"小红"</span>);</span><br><span class="line">a2.add(<span class="string">"小蓝"</span>);</span><br><span class="line"></span><br><span class="line">a1.addAll(a2);</span><br><span class="line"></span><br><span class="line"><span class="comment">//在指定索引位置插入一个数据</span></span><br><span class="line"></span><br><span class="line">a1.add(<span class="number">0</span>,<span class="string">"小军"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除数据</span></span><br><span class="line">a1.remove(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LinkedList ll &#x3D; new LinkedList();</span><br><span class="line">        &#x2F;&#x2F;添加数据</span><br><span class="line">		ll.add(234);</span><br><span class="line">		ll.add(3);</span><br><span class="line">        &#x2F;&#x2F;插入首位置</span><br><span class="line">		ll.addFirst(100);</span><br><span class="line">        &#x2F;&#x2F;插入末尾位置</span><br><span class="line">		ll.addLast(300);</span><br></pre></td></tr></table></figure>
+<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LinkedList ll = <span class="keyword">new</span> LinkedList();</span><br><span class="line">        <span class="comment">//添加数据</span></span><br><span class="line">		ll.add(<span class="number">234</span>);</span><br><span class="line">		ll.add(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//插入首位置</span></span><br><span class="line">		ll.addFirst(<span class="number">100</span>);</span><br><span class="line">        <span class="comment">//插入末尾位置</span></span><br><span class="line">		ll.addLast(<span class="number">300</span>);</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;添加数据</span><br><span class="line">vector.add();</span><br></pre></td></tr></table></figure>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加数据</span></span><br><span class="line">vector.add();</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashSet set &#x3D; new HashSet();</span><br><span class="line"></span><br><span class="line">set.add(&quot;Hello&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line"></span><br><span class="line">set.add(<span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TreeSet set &#x3D; new HashSet();</span><br><span class="line"></span><br><span class="line">set.add(&quot;Hello&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TreeSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line"></span><br><span class="line">set.add(<span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;HashMap 里面保存的是键值对</span><br><span class="line">HashMap map &#x3D; new HashMap();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;键不能相同，如果相同的话，会把之前的值给覆盖掉</span><br><span class="line">map.put(&quot;小红&quot;, 56);</span><br><span class="line">map.put(&quot;小明&quot;, 500);</span><br><span class="line">map.put(&quot;小明&quot;, 555);</span><br><span class="line"></span><br><span class="line">System.out.println(map.get(&quot;小红&quot;));&#x2F;&#x2F;返回 56</span><br><span class="line">&#x2F;&#x2F;判断是否存在的两种方法</span><br><span class="line">System.out.println(map.containsKey(&quot;小军&quot;));</span><br><span class="line">System.out.println(map.containsValue(500));</span><br></pre></td></tr></table></figure>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//HashMap 里面保存的是键值对</span></span><br><span class="line">HashMap map = <span class="keyword">new</span> HashMap();</span><br><span class="line"></span><br><span class="line"><span class="comment">//键不能相同，如果相同的话，会把之前的值给覆盖掉</span></span><br><span class="line">map.put(<span class="string">"小红"</span>, <span class="number">56</span>);</span><br><span class="line">map.put(<span class="string">"小明"</span>, <span class="number">500</span>);</span><br><span class="line">map.put(<span class="string">"小明"</span>, <span class="number">555</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(map.get(<span class="string">"小红"</span>));<span class="comment">//返回 56</span></span><br><span class="line"><span class="comment">//判断是否存在的两种方法</span></span><br><span class="line">System.out.println(map.containsKey(<span class="string">"小军"</span>));</span><br><span class="line">System.out.println(map.containsValue(<span class="number">500</span>));</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="TreeMap和HashTable"><a href="#TreeMap和HashTable" class="headerlink" title="TreeMap和HashTable"></a>TreeMap和HashTable</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法和HashMap用法一样</span><br></pre></td></tr></table></figure>
+<h2 id="TreeMap和HashTable"><a href="#TreeMap和HashTable" class="headerlink" title="TreeMap和HashTable"></a>TreeMap和HashTable</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法和HashMap用法一样</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -321,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
