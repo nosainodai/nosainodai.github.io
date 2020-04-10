@@ -1171,9 +1171,39 @@ pre .javascript .function {
 }
 .site-author-image {
   transition: transform 1s ease-out;
+  animation: rotate 5s linear infinite;
 }
-.site-author-image:hover {
-  transform: rotateZ(360deg);
+@-moz-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .site-author-name {
   color: var(--text-color);
@@ -1201,7 +1231,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #40ff46;
+  background: #66f5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
