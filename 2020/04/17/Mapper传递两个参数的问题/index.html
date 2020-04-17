@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"nosainodai.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="做一个登录验证的时候，要传入username和password两个参数   首先AdminMapper.xml文件中12345   1.不需要写parameterType   2.   &lt;select id&#x3D;&quot;cheak&quot;  resultType&#x3D;&quot;Integer&quot;&gt;	select count(*) from admin where username&#x3D;#&amp;#123;param1&amp;#1">
+  <meta name="description" content="做一个登录验证的时候，要传入username和password两个参数   首先AdminMapper.xml文件中1234   1.不需要写parameterType   &lt;select id&#x3D;&quot;cheak&quot;  resultType&#x3D;&quot;Integer&quot;&gt;	select count(*) from admin where username&#x3D;#&amp;#123;param1&amp;#125; an">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mapper传递两个参数">
 <meta property="og:url" content="http://nosainodai.github.io/2020/04/17/Mapper%E4%BC%A0%E9%80%92%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="第三方の博客">
-<meta property="og:description" content="做一个登录验证的时候，要传入username和password两个参数   首先AdminMapper.xml文件中12345   1.不需要写parameterType   2.   &lt;select id&#x3D;&quot;cheak&quot;  resultType&#x3D;&quot;Integer&quot;&gt;	select count(*) from admin where username&#x3D;#&amp;#123;param1&amp;#1">
+<meta property="og:description" content="做一个登录验证的时候，要传入username和password两个参数   首先AdminMapper.xml文件中1234   1.不需要写parameterType   &lt;select id&#x3D;&quot;cheak&quot;  resultType&#x3D;&quot;Integer&quot;&gt;	select count(*) from admin where username&#x3D;#&amp;#123;param1&amp;#125; an">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-17T03:00:34.000Z">
-<meta property="article:modified_time" content="2020-04-17T03:08:37.141Z">
+<meta property="article:modified_time" content="2020-04-17T03:10:36.496Z">
 <meta property="article:author" content="Sai Chou">
 <meta property="article:tag" content="Mapper">
 <meta name="twitter:card" content="summary">
@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
   </ul>
@@ -189,7 +189,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-17 11:00:34 / 修改时间：11:08:37" itemprop="dateCreated datePublished" datetime="2020-04-17T11:00:34+08:00">2020-04-17</time>
+              <time title="创建时间：2020-04-17 11:00:34 / 修改时间：11:10:36" itemprop="dateCreated datePublished" datetime="2020-04-17T11:00:34+08:00">2020-04-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,7 +228,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>294</span>
+              <span>291</span>
             </span>
 
         </div>
@@ -244,7 +244,7 @@
 <p>做一个登录验证的时候，要传入<code>username</code>和<code>password</code>两个参数</p>
 </blockquote>
 <ol>
-<li>首先<code>AdminMapper.xml</code>文件中<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   1.不需要写parameterType</span><br><span class="line">   2.</span><br><span class="line">   <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"cheak"</span>  <span class="attr">resultType</span>=<span class="string">"Integer"</span>&gt;</span></span><br><span class="line">	select count(*) from admin where username=#&#123;param1&#125; and password=#&#123;param2&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>首先<code>AdminMapper.xml</code>文件中<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   1.不需要写parameterType</span><br><span class="line">   <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"cheak"</span>  <span class="attr">resultType</span>=<span class="string">"Integer"</span>&gt;</span></span><br><span class="line">	select count(*) from admin where username=#&#123;param1&#125; and password=#&#123;param2&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><code>AdminMapper.java</code>中的配置<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">cheak</span><span class="params">(String username,String password)</span></span>;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
@@ -283,8 +283,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/" rel="prev" title="使用PreparedStatement">
-      <i class="fa fa-chevron-left"></i> 使用PreparedStatement
+    <a href="/2020/04/17/Sql%E5%92%8Cjava%E6%97%A5%E6%9C%9F%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/" rel="prev" title="sql和java日期之间的转换">
+      <i class="fa fa-chevron-left"></i> sql和java日期之间的转换
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -361,20 +361,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -421,7 +421,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">18k</span>
+    <span title="站点总字数">19k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
