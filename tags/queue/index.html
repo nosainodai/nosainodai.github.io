@@ -22,20 +22,17 @@
     var CONFIG = {"hostname":"nosainodai.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="因为用Statement时MySQL语句得写成String sql &#x3D; &quot; selete username,password where username&#x3D;&#39;&quot;+username+&quot;&#39;,password&#x3D;&#39;&quot;+password+&quot;&#39; &quot;如果username或者password里面传入一些特殊字符如&amp;quo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用PreparedStatement">
-<meta property="og:url" content="http://nosainodai.github.io/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/index.html">
+  <meta name="description" content="知足且上进，温柔而坚定">
+<meta property="og:type" content="website">
+<meta property="og:title" content="第三方の博客">
+<meta property="og:url" content="http://nosainodai.github.io/tags/queue/index.html">
 <meta property="og:site_name" content="第三方の博客">
-<meta property="og:description" content="因为用Statement时MySQL语句得写成String sql &#x3D; &quot; selete username,password where username&#x3D;&#39;&quot;+username+&quot;&#39;,password&#x3D;&#39;&quot;+password+&quot;&#39; &quot;如果username或者password里面传入一些特殊字符如&amp;quo">
+<meta property="og:description" content="知足且上进，温柔而坚定">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-14T14:00:34.000Z">
-<meta property="article:modified_time" content="2020-04-14T04:38:11.323Z">
 <meta property="article:author" content="Sai Chou">
-<meta property="article:tag" content="MySQL注入问题">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://nosainodai.github.io/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://nosainodai.github.io/tags/queue/">
 
 
 <script id="page-configurations">
@@ -43,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>使用PreparedStatement | 第三方の博客</title>
+  <title>标签: queue | 第三方の博客</title>
   
 
 
@@ -158,155 +155,57 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://nosainodai.github.io/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/01.jpg">
-      <meta itemprop="name" content="Sai Chou">
-      <meta itemprop="description" content="知足且上进，温柔而坚定">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第三方の博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          使用PreparedStatement
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-14 22:00:34 / 修改时间：12:38:11" itemprop="dateCreated datePublished" datetime="2020-04-14T22:00:34+08:00">2020-04-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDBC/" itemprop="url" rel="index"><span itemprop="name">JDBC</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
   
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>618</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">queue
+          <small>标签</small>
+        </h2>
+      </div>
 
       
-        <blockquote>
-<p>因为用<code>Statement</code>时<code>MySQL</code>语句得写成<br><code>String sql = &quot; selete username,password where username=&#39;&quot;+username+&quot;&#39;,password=&#39;&quot;+password+&quot;&#39; &quot;</code><br>如果<code>username</code>或者<code>password</code>里面传入一些特殊字符如<code>&quot;fas&quot;%&amp;&quot;32&quot;</code>就会使<code>sql语句</code>错误<br>这时需要用<code>PreparedStatement</code>解决</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="加载驱动"><a href="#加载驱动" class="headerlink" title="加载驱动"></a>加载驱动</h1><h1 id="获取连接"><a href="#获取连接" class="headerlink" title="获取连接"></a>获取连接</h1><h1 id="验证用户名和密码"><a href="#验证用户名和密码" class="headerlink" title="验证用户名和密码"></a>验证用户名和密码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String sql=<span class="string">"select * from user where username=? and password=?"</span>;</span><br><span class="line">			</span><br><span class="line">Prepared stat=con.prepareStatement(sql);</span><br><span class="line">stat.setString(<span class="number">1</span>, username);</span><br><span class="line">stat.setString(<span class="number">2</span>, password);</span><br><span class="line"></span><br><span class="line">ResultSet res=stat.executeQuery();</span><br><span class="line">System.out.println(res.next()?<span class="string">"sucess"</span>:<span class="string">"failure"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h1><h1 id="使用PreparedStatement的好处"><a href="#使用PreparedStatement的好处" class="headerlink" title="使用PreparedStatement的好处"></a>使用PreparedStatement的好处</h1><ol>
-<li>不再使用+拼接sql语句，减少语法错误，语义性强</li>
-<li>将模板sql(固定的部分)和参数部分进行了分离，提高维护性</li>
-<li>有效的解决了sql注入问题</li>
-<li>大大减少了编译次数，效率较高</li>
-</ol>
-
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    
-    
-    
-        
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>Sai Chou
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://nosainodai.github.io/2020/04/14/%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/" title="使用PreparedStatement">http://nosainodai.github.io/2020/04/14/用PreparedStatement解决MySQL注入问题/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-04-25T11:00:34+08:00"
+              content="2020-04-25">
+          04-25
+        </time>
+      </div>
 
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/04/25/%E9%98%9F%E5%88%97/" itemprop="url">
+            <span itemprop="name">队列中需要注意的地方</span>
+          </a>
+      </div>
 
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> MySQL注入问题</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/04/13/JDBC/" rel="prev" title="JAVA数据库连接">
-      <i class="fa fa-chevron-left"></i> JAVA数据库连接
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/17/Mapper%E4%BC%A0%E9%80%92%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="Mapper传递两个参数">
-      Mapper传递两个参数 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -353,7 +252,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#加载驱动"><span class="nav-number">1.</span> <span class="nav-text">加载驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取连接"><span class="nav-number">2.</span> <span class="nav-text">获取连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证用户名和密码"><span class="nav-number">3.</span> <span class="nav-text">验证用户名和密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#释放资源"><span class="nav-number">4.</span> <span class="nav-text">释放资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用PreparedStatement的好处"><span class="nav-number">5.</span> <span class="nav-text">使用PreparedStatement的好处</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
