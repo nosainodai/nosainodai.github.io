@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nosainodai.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Java数据库连接，（Java Database Connectivity，简称JDBC）是Java语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如查询和更新数据库中数据的方法。JDBC也是Sun Microsystems的商标。我们通常说的JDBC是面向关系型数据库的。  基础增删改查12345678910CREATE DATABASE users;&#x2F;&#x2F;创建数据库drop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA数据库连接">
+<meta property="og:url" content="https://nosainodai.github.io/2020/04/13/2020-04-13-JDBC/index.html">
+<meta property="og:site_name" content="第三方の博客">
+<meta property="og:description" content="Java数据库连接，（Java Database Connectivity，简称JDBC）是Java语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如查询和更新数据库中数据的方法。JDBC也是Sun Microsystems的商标。我们通常说的JDBC是面向关系型数据库的。  基础增删改查12345678910CREATE DATABASE users;&#x2F;&#x2F;创建数据库drop">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-13T14:00:34.000Z">
+<meta property="article:modified_time" content="2026-09-07T13:28:18.845Z">
+<meta property="article:author" content="Sai Chou">
+<meta property="article:tag" content="CRUD">
+<meta property="article:tag" content="JDBC">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nosainodai.github.io/2020/04/13/2020-04-13-JDBC/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nosainodai.github.io/2020/04/13/2020-04-13-JDBC/","path":"2020/04/13/2020-04-13-JDBC/","title":"JAVA数据库连接"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JAVA数据库连接 | 第三方の博客</title>
+  
+
+
+
+
+
+
+
+
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">第三方の博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录学习的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">基础增删改查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">加载驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">获取连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">执行增删改查工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E"><span class="nav-number">4.1.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0"><span class="nav-number">4.2.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9"><span class="nav-number">4.3.</span> <span class="nav-text">改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5"><span class="nav-number">4.4.</span> <span class="nav-text">查</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">关闭连接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sai Chou</p>
+  <div class="site-description" itemprop="description">记录学习的点点滴滴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nosainodai.github.io/2020/04/13/2020-04-13-JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sai Chou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="第三方の博客">
+      <meta itemprop="description" content="记录学习的点点滴滴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JAVA数据库连接 | 第三方の博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JAVA数据库连接
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-13 22:00:34" itemprop="dateCreated datePublished" datetime="2020-04-13T22:00:34+08:00">2020-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-07 21:28:18" itemprop="dateModified" datetime="2026-09-07T21:28:18+08:00">2026-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>Java数据库连接，（Java Database Connectivity，简称JDBC）是Java语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如查询和更新数据库中数据的方法。JDBC也是Sun Microsystems的商标。我们通常说的JDBC是面向关系型数据库的。</p>
+</blockquote>
+<h1 id="基础增删改查"><a href="#基础增删改查" class="headerlink" title="基础增删改查"></a>基础增删改查</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE users;<span class="operator">/</span><span class="operator">/</span>创建数据库</span><br><span class="line"><span class="keyword">drop</span>  DATABASE users;<span class="operator">/</span><span class="operator">/</span>删库</span><br><span class="line">USE users;</span><br><span class="line"><span class="keyword">CREATE TABLE</span> <span class="keyword">user</span>(id <span class="type">INT</span> <span class="keyword">PRIMARY KEY</span> auto_increment,username <span class="type">VARCHAR</span>(<span class="number">16</span>),password <span class="type">VARCHAR</span>(<span class="number">16</span>));<span class="operator">/</span><span class="operator">/</span>新建一表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>;<span class="operator">/</span><span class="operator">/</span>删除表</span><br><span class="line"><span class="keyword">INSERT INTO</span> <span class="keyword">user</span> <span class="keyword">VALUES</span> (<span class="keyword">null</span>,<span class="string">&#x27;小明&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),(<span class="keyword">null</span>,<span class="string">&#x27;小名&#x27;</span>,<span class="string">&#x27;234&#x27;</span>),(<span class="keyword">null</span>,<span class="string">&#x27;小铭&#x27;</span>,<span class="string">&#x27;134&#x27;</span>),(<span class="keyword">null</span>,<span class="string">&#x27;小鸣&#x27;</span>,<span class="string">&#x27;124&#x27;</span>);<span class="operator">/</span><span class="operator">/</span>增加数据</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> id<span class="operator">=</span><span class="number">1</span>;<span class="operator">/</span><span class="operator">/</span>删除数据</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> username<span class="operator">=</span><span class="string">&#x27;小命&#x27;</span> <span class="keyword">WHERE</span> id<span class="operator">=</span><span class="number">2</span>;<span class="operator">/</span><span class="operator">/</span>修改数据</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span>;<span class="operator">/</span><span class="operator">/</span>查询表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="加载驱动"><a href="#加载驱动" class="headerlink" title="加载驱动"></a>加载驱动</h1><ul>
+<li>采用反射的方法加载类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//属于运行期加载，大大降低了类的依赖性</span></span><br><span class="line"><span class="comment">//Driver 对象仅仅创建了一遍，效率高</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);<span class="comment">//</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        <span class="comment">// TODO 自动生成的 catch 块</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="获取连接"><a href="#获取连接" class="headerlink" title="获取连接"></a>获取连接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span><span class="string">&quot;String url=&quot;</span>jdbc:mysql:<span class="comment">//localhost:3306/users?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&quot;;</span></span><br><span class="line"><span class="type">String</span> <span class="variable">user</span><span class="operator">=</span><span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">password</span><span class="operator">=</span><span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="type">Connection</span> <span class="variable">con</span><span class="operator">=</span> DriverManager.getConnection(url, user, password);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="执行增删改查工作"><a href="#执行增删改查工作" class="headerlink" title="执行增删改查工作"></a>执行增删改查工作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*          原始表</span></span><br><span class="line"><span class="comment">            id,username,password</span></span><br><span class="line"><span class="comment">            1,小明,1234</span></span><br><span class="line"><span class="comment">            2,小名,234</span></span><br><span class="line"><span class="comment">            3,小铭,134</span></span><br><span class="line"><span class="comment">            4,小鸣,124</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写SQL语句</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span><span class="operator">=</span><span class="string">&quot;INSERT INTO user VALUES (null,&#x27;小冥&#x27;,&#x27;1234&#x27;)&quot;</span>;</span><br><span class="line"><span class="comment">//String sql=&quot;insert into user&quot;;</span></span><br><span class="line"><span class="comment">//获取执行sql语句的命令对象</span></span><br><span class="line"><span class="type">Statement</span> <span class="variable">statement</span><span class="operator">=</span>con.createStatement();</span><br><span class="line"><span class="comment">//执行sql语句</span></span><br><span class="line"><span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> statement.excuteUpdate(sql);<span class="comment">//执行增改删语句，返回首影响的行数</span></span><br><span class="line">System.out.println(update&gt;<span class="number">0</span>?<span class="string">&quot;success&quot;</span>:<span class="string">&quot;failure&quot;</span>);</span><br><span class="line">                        <span class="comment">//修改后的表</span></span><br><span class="line">                        <span class="comment">// 1,小明,1234</span></span><br><span class="line">                        <span class="comment">// 2,小名,234</span></span><br><span class="line">                        <span class="comment">// 3,小铭,134</span></span><br><span class="line">                        <span class="comment">// 4,小鸣,124</span></span><br><span class="line">                        <span class="comment">// 5,小冥，1234</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写SQL语句</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">sql</span><span class="operator">=</span><span class="string">&quot;delete from user where id=2 &quot;</span>;</span><br><span class="line">    <span class="comment">//String sql=&quot;insert into user&quot;;</span></span><br><span class="line">    <span class="comment">//获取执行sql语句的命令对象</span></span><br><span class="line">    <span class="type">Statement</span> <span class="variable">statement</span><span class="operator">=</span>con.createStatement();</span><br><span class="line">    <span class="comment">//执行sql语句</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> statement.excuteUpdate(sql);<span class="comment">//执行增改删语句，返回首影响的行数</span></span><br><span class="line">    System.out.println(update&gt;<span class="number">0</span>?<span class="string">&quot;success&quot;</span>:<span class="string">&quot;failure&quot;</span>);</span><br><span class="line">                            <span class="comment">//修改后的表</span></span><br><span class="line">                            <span class="comment">// 1,小明,1234</span></span><br><span class="line">                            <span class="comment">// 3,小铭,134</span></span><br><span class="line">                            <span class="comment">// 4,小鸣,124</span></span><br><span class="line">                            <span class="comment">// 5,小冥，1234</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写SQL语句</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">sql</span><span class="operator">=</span><span class="string">&quot;update user set username=&#x27;小红&#x27; where id=3&quot;</span>;</span><br><span class="line">    <span class="comment">//String sql=&quot;insert into user&quot;;</span></span><br><span class="line">    <span class="comment">//获取执行sql语句的命令对象</span></span><br><span class="line">    <span class="type">Statement</span> <span class="variable">statement</span><span class="operator">=</span>con.createStatement();</span><br><span class="line">    <span class="comment">//执行sql语句</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">update</span> <span class="operator">=</span> statement.excuteUpdate(sql);<span class="comment">//执行增改删语句，返回首影响的行数</span></span><br><span class="line">    System.out.println(update&gt;<span class="number">0</span>?<span class="string">&quot;success&quot;</span>:<span class="string">&quot;failure&quot;</span>);</span><br><span class="line">                            <span class="comment">//修改后的表</span></span><br><span class="line">                            <span class="comment">// 1,小明,1234</span></span><br><span class="line">                            <span class="comment">// 3,小红,134</span></span><br><span class="line">                            <span class="comment">// 4,小鸣,124</span></span><br><span class="line">                            <span class="comment">// 5,小冥，1234</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写SQL语句</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span><span class="operator">=</span><span class="string">&quot;select * from user&quot;</span>;<span class="comment">//查询</span></span><br><span class="line"><span class="comment">//String sql=&quot;insert into user&quot;;</span></span><br><span class="line"><span class="comment">//获取执行sql语句的命令对象</span></span><br><span class="line"><span class="type">Statement</span> <span class="variable">statement</span><span class="operator">=</span>con.createStatement();</span><br><span class="line"><span class="comment">//执行sql语句</span></span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">res</span><span class="operator">=</span>statement.executeQuery(sql);<span class="comment">//执行查询语句，返回一个结果集</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(res.next()) &#123;</span><br><span class="line">    res.getInt(<span class="number">1</span>);</span><br><span class="line">    res.getString(<span class="number">2</span>);</span><br><span class="line">    res.getString(<span class="number">3</span>);</span><br><span class="line">    System.out.println(res.getInt(<span class="number">1</span>)+<span class="string">&quot;,&quot;</span>+res.getString(<span class="number">2</span>)+<span class="string">&quot;,&quot;</span>+res.getString(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line">                        <span class="comment">//得到的结果</span></span><br><span class="line">                        <span class="comment">// 1,小明,1234</span></span><br><span class="line">                        <span class="comment">// 3,小红,134</span></span><br><span class="line">                        <span class="comment">// 4,小鸣,124</span></span><br><span class="line">                        <span class="comment">// 5,小冥，1234</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(res!=<span class="literal">null</span>)res.close();</span><br><span class="line"><span class="keyword">if</span>(statement!=<span class="literal">null</span>)statement.close();</span><br><span class="line"><span class="keyword">if</span>(con!=<span class="literal">null</span>)con.close();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/JDBC/" rel="tag"># JDBC</a>
+              <a href="/tags/CRUD/" rel="tag"># CRUD</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/12/2020-04-12-%E5%AD%90%E6%9F%A5%E8%AF%A2/" rel="prev" title="子查询">
+                  <i class="fa fa-angle-left"></i> 子查询
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/14/2020-04-14-%E7%94%A8PreparedStatement%E8%A7%A3%E5%86%B3MySQL%E6%B3%A8%E5%85%A5%E9%97%AE%E9%A2%98/" rel="next" title="使用PreparedStatement">
+                  使用PreparedStatement <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sai Chou</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
